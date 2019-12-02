@@ -1,187 +1,67 @@
-History of Modules + TC39
+* The future of Universal JavaScript
 
-* ES4 introduced concept of packages
-   * Similar to c++ namespaces
-   * Ripped out of the standards track and never seen again
-   * Intent was to create something like Java jar system
-* Common JS is introduced with members of TC39 working on it
-   * This was not on the standards track
-   * Meant to be used only on server sides
-   * Node implements variant of Common JS
-* As Common JS was taking off AMD showed up
-   * Only “spec’d” by require JS
-   * More of a convention
-* People start creating UMD
-   * Requires runtime based detection to support multiple module system
-* 2015: ES lands module specifications after removing the loader
-   * Loader died due to complexity
-   * Hard to figure out something that worked in all environments
-   * Much of the pipelines were replaced by service workers
-   * Future: https://github.com/whatwg/html/issues/2640 for web
-* Future of the loaders on web + node are really a convoluted tale
-   * Web is minimal
-   * Node is implementing backwards compat, but still rough.
-* In about 6 months we should see enough hooks for these to start being used by developers
+  - what gets in the way?
+    - platform specific flags / environment
+  - some modules may be specific to an environment
+  - issue with common.js, had to strip it all out to even get it workign in the browser
+    - somewhat true about node.js apis as well
+  - people wanted to use the new module standard because it is what the browser would use, but how they wrote it can never be run in the browser
+  - for 5 years people thought modules existed, but they didn't actually
+  - File paths can make things difficult
+    - need to normalize between environments
+    - absolute paths are not reconcilable
+  - Where does the platform end?
+    - Is this thing I'm writing part of the platform?
+  - Streams!
+  - Standards to king make vs grassroots to gain ecosystem adoption
+    - E_TOO_MANY_VENDORS
+      - TC39
+      - W3C (many different groups)
+      - WHATWG
+      - IEFT
+      - IANA
+  - Good examples of existing "standard" universal modules
+    - console
+    - URL
+    - 
+  - where do namespaces fit in?
+  - The future of JSON Modules (and other such module e.g. css / html / wasm)
+  - types of tooling
+    - do more by doing less
+    - begining to create a nihilistic view of the future
+    - should be progressive
+  - where do built ins fit in this?
 
+* Hack on modules
+  - NVM_NODEJS_ORG_MIRROR=https://nodejs.org/download/test/ nvm i test201911116cb54c73da
 
-What is a loader?
+* Dual Mode modules
+  - What are they
+  - How does it work?
 
+* Export Maps
+  - conditional exports
+    - Alternative entry points for browsers
+  - vision for interaction with import maps
 
-* Loader is a generic term for the workflow implementation implementation of a module system that has various aspects that are generally universal
-   * Fetch
-   * Transform
-      * Manipulate / instrument source code
-   * Evaluation hook (less common, but common enough)
-      * For manipulating things for APMs
-      * Manipulating the references
-
-
-What is the module goal?
-
-
-* What is a goal
-   * In the ecmascript spec a “Goal” is a pairing of a top-level grammar and top-level execution mode
-* Top-Level Grammar
-   * Strict Mode vs Sloppy Mode
-      * Denoted with pragma
-   * Some extra grammar changes beyond strict mode in esmodules
-      * No html comments
-      * Await is reserved keyword
-      * Expectation of divergence to increase over time
-* Esmodules do not have any in source text way of reliably determining goal
-* Execution Mode
-   * About timing + scoping
-   * Rules that change how operators work very slightly
-      * Such as global lookups
-   * ESM has localized scope
-      * If you have access to global / window object you can still make global changes, it is not default scope
-   * This value in ESM scope is always undefined (rather than global)
-   * Script goal has global scope
-* 4 goals
-   * 3 ECMA script mandated goals
-      * Script strict
-         * Intended to be subset of sloppy, but has different execution mode for some operations… generally safe but not the same
-      * Script sloppy
-      * ESM
-   * Node Goal
-      * CommonJS
-   * Future Goals
-      * BinaryAST
-         * Always a different execution mode
-         * AST represents different grammars
-         * Meta Goal
-      * WASM
-      * WebPackage
-      * HTML modules
-* We have to plan for the future as Node and be ready for more goals coming. We are not solving a problem of 2 goals, but rather many.
-* Dynamic imports exists in all goals
-   * Creates increased overlap
-   * Makes source code detection problematic
+* import maps
+  - relative urls on other domains???
 
 
 
+* loaders
+  - Current limitations e.g. network / filesystem
 
-Differences in resolution + execution between Common + ESM
-
-
-* TC39 leaves it up to the hosting environment to determine resolution
-   * For the web it had to be URL based
-   * Shipped minimal before adding hooks
-* Node combines conventions of Node ecosystem + web requirements
-   * Bare imports (import request from ‘request’)
-   * Import JSON
-   * You can drop file extension / directory index.* works / package.json works
-   * ESM does not honor NODE_PATH / require.extensions / ~/.node_libraries / etc.
-      * These have been deprecated and cause divergence with web
-* Common Does not have a discrete load step. It executes as it loads.
-* ESM has Async Load + Sync Link + Sync Execution
-   * Load:
-      * Fetch source texts for *all* the module graph
-      * Resolve specifiers within source texts
-   * Link:
-      * Requires *all* the module graph be in memory
-      * Done in pre-order traversal
-      * After linking exported FunctionDeclarations are available for use
-   * Execution:
-      * Requires linking be completed for the module graph
-      * Done in post-order traversal
-   * Error:
-      * Errors are idempotent regardless of occurring in Load/Link/Execution
+* The future of tooling
 
 
-Bidirectional loading / Making a cowpath
 
+* Packaging
+  - web packaging
 
-* Loading ESM from CJS
-   * `import(ESM)` works!
-   * Cannot `require(ESM)`
-      * Timing would require wrapping in a Promise
-      * Resolve behavior differs
-      * Use the language standard
-* Loading CJS from ESM
-   * Your transpiled stuff will break
-      * Transpilers used CJS under the hood
-   * `import fs from "fs";`
-      * Working on a way to get named exports from Node core
-      * Userland modules only provide a `default` export, no named imports
-         * Working on a pragma for CJS to allow this with restrictions on `module.exports`
-         * Timing issue, need to be able to link ESM graph before evaluating
-      * Cached value of CJS is synchronized into the ESM Cache
+* Future of the VM module
+  - realms???
 
+* Signed Packages
 
-How do the caches differ
-
-
-* Synchronized dual cache
-* Discrete points where snapshots are taken
-* Only from Common cache -> esm cache
-* Done eagerly, immediately after require extension handler finishes
-* This is a reference copy
-* File Paths to the file is key in Common
-* URL to the file is the key in ESM
-* Can use attributes to reload a module
-
-
-Import.meta
-
-
-* CJS has lexically scoped variables
-   * __filename
-   * __dirname
-   * require
-   * module
-* ESM does not have a way to inject lexically scope variables
-* Is a way to have compat with both web + node for lexically scoped variables
-   * import.meta.url : string 
-      * URL of the currently executing Module Record , not file
-      * Module record is what happens after you parse a source text
-   * In discussion: import.meta.resolve: async (specifier: string): string
-
-
-The future
-
-
-* ESM is one of many goals coming
-   * Have to solve this problem for many
-   * Plan accordingly
-* Hooks are coming to Node + Web
-   * Unstable until compat between is fully explored
-      * Node shipping behind a flag currently
-   * Resolve
-   * Evaluation Hook
-   * Not currently looking at transform hook
-      * Can always use resolve hook to point to newly transformed source
-   * Hooks will deopt
-* Loading Snapshots
-* .mjs is standard track on IETF
-   * Will land in official mime registry as unambiguously ESM
-   * Mime types are determined by file extensions
-* .js will continue to be ambiguous between all goals
-
-===
-
-Missing content
-
-* import map
-* export map
-* Dual Mode Modules in intro
+* Caching of modules on the web
