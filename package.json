@@ -1,0 +1,41 @@
+{
+  "name": "the-future-of-javascript-is-universal",
+  "version": "1.0.0",
+  "author": {
+    "name": "Myles Borins <mylesborins@google.com>"
+  },
+  "dependencies": {
+    "bespoke": "^1.0.0",
+    "bespoke-backdrop": "^1.0.0",
+    "bespoke-bullets": "^1.0.0",
+    "bespoke-forms": "^1.0.0",
+    "bespoke-hash": "^1.0.0",
+    "bespoke-keys": "^1.0.0",
+    "bespoke-progress": "^1.0.0",
+    "bespoke-scale": "^1.0.0",
+    "bespoke-theme-nebula": "^1.0.1",
+    "bespoke-touch": "^1.0.0",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-bro": "^1.0.3",
+    "gulp-connect": "^5.6.1",
+    "gulp-csso": "^3.0.1",
+    "gulp-plumber": "^1.2.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-rename": "^1.2.0",
+    "gulp-stylus": "^2.7.0",
+    "gulp-uglify": "^3.0.2",
+    "insert-css": "^2.0.0",
+    "prismjs": "^1.17.1",
+    "through": "^2.3.4"
+  },
+  "engines": {
+    "node": ">=6.12.0"
+  },
+  "scripts": {
+    "start": "gulp serve",
+    "deploy": "gulp build && gsutil -m rsync -d -r dist gs://kni.sh/the-future-of-javascript-is-universal"
+  },
+  "license": "Apache-2.0"
+}
