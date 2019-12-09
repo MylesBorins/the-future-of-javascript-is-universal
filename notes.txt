@@ -1,3 +1,49 @@
+* What is Universal?
+* Why write universal?
+* Environments
+  - Browser
+  - Node
+  - Others?
+    - Deno
+    - Edge workers
+    - Embedded systems
+    - gsuite
+    - BigQuery
+* APIs
+  - console
+  - webcrypto
+  - url
+  - fetch
+  - performance
+* Project FUGU
+* Differences
+  - Streams
+  - Event Emmiters
+* Standards
+  * W3C
+    - wasm
+    - FUGU apis
+    - import maps
+  * WHATWG
+    - JSON Modules
+    - Streams
+  * TC39
+    - ESM
+    - import.meta
+    - Module Attributes
+    - bult in modules
+* Tools
+  - Pika
+  - Webpack
+  - rollup
+* Debugging
+* Libraries
+  - TensorFlow.js
+
+
+---
+
+
 * The future of Universal JavaScript
 
   - what gets in the way?
@@ -47,14 +93,10 @@
 * import maps
   - relative urls on other domains???
 
-
-
 * loaders
   - Current limitations e.g. network / filesystem
 
 * The future of tooling
-
-
 
 * Packaging
   - web packaging
@@ -65,3 +107,5 @@
 * Signed Packages
 
 * Caching of modules on the web
+
+
