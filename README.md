@@ -21,3 +21,7 @@ Then, install dependencies and run the preview server:
 $ npm install
 $ npm start
 ```
+
+### Disclaimer
+
+This is not an officially supported Google product
