@@ -1,4 +1,5 @@
 * What is Universal?
+  - Isomorphic vs Universal
 * Why write universal?
 * Environments
   - Browser
