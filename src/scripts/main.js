@@ -14,16 +14,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-const bespoke = require('bespoke');
-const nebula = require('bespoke-theme-nebula');
-const keys = require('bespoke-keys');
-const touch = require('bespoke-touch');
-const bullets = require('bespoke-bullets');
-const backdrop = require('bespoke-backdrop');
-const scale = require('bespoke-scale');
-const hash = require('bespoke-hash');
-// const progress = require('bespoke-progress');
-const forms = require('bespoke-forms');
+var bespoke = require('bespoke');
+var nebula = require('bespoke-theme-nebula');
+var keys = require('bespoke-keys');
+var touch = require('bespoke-touch');
+var bullets = require('bespoke-bullets');
+var backdrop = require('bespoke-backdrop');
+var scale = require('bespoke-scale');
+var hash = require('bespoke-hash');
+// var progress = require('bespoke-progress');
+var forms = require('bespoke-forms');
 
 // Bespoke.js
 bespoke.from('article', [
