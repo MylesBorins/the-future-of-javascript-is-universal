@@ -23,6 +23,21 @@ html
     .complicated {
       background-image: url('images/complicated.gif')
     }
+    .galaxy {
+      background-image: url('images/galaxy.gif')
+    }
+    .soup {
+      background-image: url('images/soup.gif')
+    }
+    .lava {
+      background-image: url('images/lava.gif')
+    }
+    .separation {
+      background-image: url('images/separation.gif')
+    }
+    .dread {
+      background-image: url('images/dread.gif')
+    }
 
   body
 
@@ -51,9 +66,9 @@ html
         
         h5.headroom The opinions expressed in this talk are solely my own
 
-      section(data-bespoke-backdrop='future')
-        h3 The opinions expressed in this talk
-        h2 might be the future
+      //- section(data-bespoke-backdrop='future')
+      //-   h3 The opinions expressed in this talk
+      //-   h2 might be the future
 
       section(data-bespoke-backdrop='wrong')
         h3 The opinions expressed in this talk
@@ -63,7 +78,7 @@ html
         h3 The opinions expressed in this talk
         h2 are definitely opinions
 
-      section
+      section(data-bespoke-backdrop='galaxy')
         h1 What is Universal JavaScript?
 
       section
@@ -107,11 +122,11 @@ html
         img(src="images/isomorphic.png" width="70%")
 
       section
-        h3 Univeral JavaScript seems great
+        h3 Universal JavaScript seems great
         h2 Tell me more
 
       section
-        h3 Many JavaScript Runtimes
+        h3 There are many JavaScript runtimes
         ul
           li.hide
           li Browsers
@@ -127,11 +142,20 @@ html
 
       section
         h2 TC39
-        h3 Specifies the basline
+        h3 Specifies the baseline
         h2 ECMA262
       
+      section(data-bespoke-backdrop='lava')
+        h3 Realms, Intrinsics, and Primordials
+
       section
-        h3 Realms, Instrinsics, and Primordials
+        h3 Primordials
+        ul
+          li.hide
+          li Array
+          li Number
+          li Object
+          li Function
 
       section
         h3 Namespace Objects
@@ -145,42 +169,116 @@ html
       section
         h1 ES Modules
 
-
-
-
-
       section
-        h1 What gets in the way of Universal JavaScript
-      
-      section
-        h2 Othering
+        h3 Modules have been the missing piece to 
+        h2 Enable Universal Modules
 
       section
-        h1 The Browser vs. Node.js
-        
+        h2 The Loader is not specified
+        h3 Implemented by embedder
+
       section
-        h1 Streams
-      
+        h3 TC39 Leaves it up to hosting environment
+        h2 To determine Resolution
+
       section
-        h1 Event Emmiters
+        h3 It is up to the runtime to
+        ul
+          li.hide
+          li Turn the reference into a location
+          li Fetch a resource from that location
+          li Do this recursively to build a graph
+          li Give the engine the graph to execute
+
+      section(data-bespoke-backdrop='separation')
+        h1 Platform Divergence
+
+      section(data-bespoke-backdrop='dread')
+        h3 A healthy source of
+        h2 Existential Dread
+
+      section(data-bespoke-backdrop='complicated')
+        h3 Can have a side effect of
+        h2 Nihilistic transpilation
+
+      section
+        h3 Are various JavaScript Platforms
+        h2 Fundamentally Different?
+
+      section
+        h3 They can have drastically
+        h2 Different APIs
+
+      section
+        h3 Is the browser is
+        h2 Fundamentally different
+        h3 From Node.js
+
+      section(data-bespoke-backdrop='soup')
+        h1 No, they come from the same soup.
+
+      section
+        h3 In fact Node.js has adopted
+        h2 Many APIS designed for browsers
+
+      section
+        h1 WHATWG
+
+      section
+        h3 What WHATWG standards are browser specific?
+        ul
+          li.hide
+          li HTML
+
+      section
+        h3 What WHATWG standards are available in both runtimes?
+        ul
+          li.hide
+          li console
+          li url
+          li Encoder API
+
+      section
+        h3 Which standards are being explored by Node.js?
+        ul
+          li.hide
+          li fetch
+          li WHATWG Streams
+
+      section
+        h2 The interface vs. Plumbing
+
+      section
+        h1 Where does the platform begin?
 
       section
         h1 Where does the platform end?
 
       section
-        h1 Nihilistic transpilation
-      
-      section
         h3 Perhaps Universal JavaScript
         h2 Is a platform concern
 
       section
-        h1 What even is JavaScript
-      
-
+        h1 JSON Modules
 
       section
-        h3 The future at TC39?
+        h1 Inspired by Node.js
+
+      section
+        h1 Specified at WHATWG
+
+      section
+        h1 Rejected at TPAC
+
+      section
+        h1 Module attributes at TC39
+
+      section
+        h2 Universal
+        h3 as a platform ethos
+
+      section
+        h3 Universal JavaScript at TC39
         ul
           li.hide
           li Built in Modules
@@ -188,72 +286,30 @@ html
           li Module Attributes
 
       section
-        h1 W3C
-
-      section
-        h3 What has been standardized at W3C?
+        h3 Universal JavaScript at WHATWG
         ul
           li.hide
-          li HTML
-          li CSS
-          li WASM
-          li Various Media APIS
+          li JSON Modules
 
       section
-        h1 WICG
-
-      section
-        h3 The future at W3C?
+        h3 Universal JavaScript at W3C
         ul
           li.hide
           li import maps
           li WASI
-
-      section
-        h1 WHATWG
-
-      section
-        h3 What has been standardized at WHATWG?
-        ul
-          li.hide
-          li console
-          li url
-          li fetch
-          li WHATWG Streams
-          li HTML
         
       section
-        h3 The future at WHATWG?
-        ul
-          li.hide
-          li JSON Modules
-          li HTML Modules
+        h3 How do we find
+        h2 a shared vision?
 
       section
-        h2 Some Universal APIs being worked on?
-        ul
-          li.hide
-          li webcrypto
-          li WHATWG Streams
-          li fetch
+        h2 Where do we collaborate?
 
       section
-        h2 What is the role of tools?
+        h3 Developers shouldn't have to know
 
       section
-        h2 The interface vs. Plumbing
-
-      section
-        h2 Universal as a platform ethos
-
-      section
-        h2 Where do we collaborate on the meta?
-        
-      section
-        h2 How do we find a shared vision?
-
-      section
-        h2 Developers shouldn't have to know
+        h2 Developers should write JavaScript
 
       section
         h2 Thank You
