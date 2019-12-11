@@ -25,14 +25,12 @@
   * Where does the platform end?
   * Nihilistic transpilation
 * Universal JavaScript as a platform concern
-  * APIs
-    - console
-    - webcrypto
-    - url
-    - fetch
-    - performance
-  * Project FUGU
   * Standards
+    * TC39
+      - ESM
+      - import.meta
+      - Module Attributes
+      - bult in modules
     * W3C
       - wasm
       - FUGU apis
@@ -40,11 +38,13 @@
     * WHATWG
       - JSON Modules
       - Streams
-    * TC39
-      - ESM
-      - import.meta
-      - Module Attributes
-      - bult in modules
+    * APIs
+      - console
+      - webcrypto
+      - url
+      - fetch
+      - performance
+    * Project FUGU
 * Tools
   - Pika
   - Webpack
@@ -56,6 +56,20 @@
   - Where do we collaborate on meta concenrs
 
 ---
+
+Glossay
+
+TC39
+
+ECMA262
+
+W3C
+
+WICG
+
+WHATWG
+
+--
 
 
 * The future of Universal JavaScript
