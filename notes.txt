@@ -1,46 +1,59 @@
 * What is Universal?
   - Isomorphic vs Universal
+* What is Isomorphics JavaScript
 * Why write universal?
-* Environments
-  - Browser
-  - Node
-  - Others?
-    - Deno
-    - Edge workers
-    - Embedded systems
-    - gsuite
-    - BigQuery
-* APIs
-  - console
-  - webcrypto
-  - url
-  - fetch
-  - performance
-* Project FUGU
-* Differences
-  - Streams
-  - Event Emmiters
-* Standards
-  * W3C
-    - wasm
-    - FUGU apis
-    - import maps
-  * WHATWG
-    - JSON Modules
+* What gets in the way of Universal
+  * Platform Specific requirements
+  * Othering
+  * The Browser vs. Node.js
+    * Change mental model
+    * Many Environments
+      - Browser
+      - Node
+      - Others?
+        - Deno
+        - Edge workers
+        - Embedded systems
+        - gsuite
+        - BigQuery
+  * Module loader
+    - Specifier resolution
+    - Historic code that runs nowhere
+  * Platform specific APIs
     - Streams
-  * TC39
-    - ESM
-    - import.meta
-    - Module Attributes
-    - bult in modules
+    - Event Emmiters
+  * Where does the platform end?
+  * Nihilistic transpilation
+* Universal JavaScript as a platform concern
+  * APIs
+    - console
+    - webcrypto
+    - url
+    - fetch
+    - performance
+  * Project FUGU
+  * Standards
+    * W3C
+      - wasm
+      - FUGU apis
+      - import maps
+    * WHATWG
+      - JSON Modules
+      - Streams
+    * TC39
+      - ESM
+      - import.meta
+      - Module Attributes
+      - bult in modules
 * Tools
   - Pika
   - Webpack
   - rollup
-* Debugging
-* Libraries
+* The Interface vs The Plumbing
   - TensorFlow.js
-
+  - Node.js module implementation
+* Universal JavaScript as a platform ethos
+  - Where do we collaborate on meta concenrs
 
 ---
 
