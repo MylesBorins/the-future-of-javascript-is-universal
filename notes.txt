@@ -57,7 +57,7 @@
 
 ---
 
-Glossay
+Glossay:
 
 TC39
 
@@ -68,6 +68,20 @@ W3C
 WICG
 
 WHATWG
+
+Primordials
+
+ESM
+
+CJS
+
+Realm
+
+Instrinsic
+
+Primordial
+
+
 
 --
 
