@@ -17,7 +17,7 @@
     "bespoke-touch": "^1.0.0",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
+    "gulp-autoprefixer": "^8.0.0",
     "gulp-bro": "^1.0.3",
     "gulp-connect": "^5.6.1",
     "gulp-csso": "^3.0.1",
